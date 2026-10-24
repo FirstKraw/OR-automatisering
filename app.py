@@ -128,6 +128,9 @@ def make_server(store, port=8765):
                     data = json.loads(raw)
                     if not isinstance(data, dict):
                         raise ValueError("Ongeldige aanvraag.")
+                    if self.path == "/api/mail/open":
+                        from oranje.mailer import open_outlook
+                        return self.respond(open_outlook(store.prepare_mail(data)))
                     routes = {"/api/resident": store.save_resident, "/api/settings": store.save_settings,
                               "/api/parse": store.parse, "/api/import/preview": store.preview_import,
                               "/api/import/commit": store.commit_import, "/api/grid": store.edit_grid,

@@ -1,6 +1,11 @@
-ORANJE MAALTIJDENBEHEER - UPDATE 2026.10.24.2
+ORANJE MAALTIJDENBEHEER - UPDATE 2026.10.24.3
 
 Wat verandert er?
+- Auto mail opent een concept in de klassieke Outlook voor Windows, met
+  bewindvoerder, onderwerp, mailtekst en de PDF als bijlage.
+- Je verstuurt zelf in Outlook en klikt daarna op Verstuurd registreren.
+- Controleer de afzendrekening in Outlook. Nieuwe Outlook ondersteunt deze
+  lokale koppeling niet; handmatig kopieren en PDF downloaden blijven werken.
 - Afzendernaam, adres, e-mail en rekeningnummer staan samen bovenaan de PDF.
 - De afrekencode en bestandsnaam bevatten maand, jaar en bewonersnaam.
   Voorbeeld: 10-2026-Voorbeeld-Bewoner-V1.pdf.

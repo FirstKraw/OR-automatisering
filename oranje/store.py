@@ -375,6 +375,21 @@ class Store:
                 raise ValueError("Er zijn geen bewonersmaaltijden voor deze maand.")
         return {"ids": ids, "replaced_sent": replaced_sent}
 
+    def prepare_mail(self, data):
+        """Read one current invoice and its exact stored PDF without any mutation."""
+        with self.lock, self.connect() as db:
+            if data.get("revision") != self.revision(db):
+                raise Conflict("De gegevens zijn gewijzigd. Vernieuw de pagina en probeer opnieuw.")
+            inv = next((x for x in self.invoice_rows(db) if x["id"] == data.get("id")), None)
+            if not inv or not inv["latest"] or inv["stale"]:
+                raise ValueError("Deze afrekening is vervangen of gewijzigd. Maak eerst een actuele versie.")
+            recipient = inv["snapshot"]["resident"]["email"]
+            if not recipient or any(c in recipient for c in '\r\n;,'):
+                raise ValueError("Controleer eerst het e-mailadres van de bewindvoerder.")
+            pdf = db.execute("SELECT pdf FROM invoices WHERE id=?", (inv["id"],)).fetchone()[0]
+            return {"recipient": recipient, "subject": inv["subject"], "body": inv["body"],
+                    "reference": inv["reference"], "pdf": bytes(pdf)}
+
     def mark_sent(self, data):
         with self.mutation(data.get("revision")) as db:
             inv = next((x for x in self.invoice_rows(db) if x["id"] == data.get("id")), None)
