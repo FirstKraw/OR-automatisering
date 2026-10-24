@@ -58,12 +58,15 @@ try {
         }
     }
     $target = [IO.Path]::GetFullPath($Installatiemap)
+    if ($target.Length -gt [IO.Path]::GetPathRoot($target).Length) { $target = $target.TrimEnd('\', '/') }
     if (-not (Test-Path -LiteralPath (Join-Path $target 'app.py')) -or -not (Test-Path -LiteralPath (Join-Path $target 'oranje/store.py'))) { throw 'Kies de bestaande appmap.' }
     if (-not $TijdelijkeMap) { $TijdelijkeMap = [IO.Path]::GetTempPath() }
     $stage = Join-Path $TijdelijkeMap ('oranje-github-' + [Guid]::NewGuid().ToString('N'))
     New-Item -ItemType Directory -Path $stage | Out-Null
     $metadataFile = Join-Path $stage 'latest.json'
-    Download $KanaalUrl $metadataFile 1048576
+    $separator = '?'
+    if ($KanaalUrl.Contains('?')) { $separator = '&' }
+    Download ($KanaalUrl + $separator + 'controle=' + [DateTime]::UtcNow.Ticks) $metadataFile 1048576
     $metadata = [IO.File]::ReadAllText($metadataFile) | ConvertFrom-Json
     if ($metadata.app -ne 'oranje-maaltijden' -or $metadata.version -notmatch '^\d{4}\.\d{1,2}\.\d{1,2}\.\d+$' -or $metadata.sha256 -notmatch '^[A-Fa-f0-9]{64}$') { throw 'Ongeldige update-informatie ontvangen.' }
     $sourceUri = [Uri]$KanaalUrl

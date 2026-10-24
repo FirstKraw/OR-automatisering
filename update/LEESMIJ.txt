@@ -1,4 +1,4 @@
-ORANJE MAALTIJDENBEHEER - UPDATE 2026.10.24.1
+ORANJE MAALTIJDENBEHEER - UPDATE 2026.10.24.2
 
 Wat verandert er?
 - Afzendernaam, adres, e-mail en rekeningnummer staan samen bovenaan de PDF.
