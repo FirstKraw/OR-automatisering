@@ -1,0 +1,9 @@
+data/
+.venv/
+__pycache__/
+*.pyc
+runtime.json
+*.lnk
+update-backups/
+github-update.log
+tmp/

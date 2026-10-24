@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#214e3b"><title>Oranje · Maaltijdenbeheer</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css"><script defer src="/app.js"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#overzicht"><span class="brand-mark">o.</span><span>Oranje<small>Maaltijdenbeheer</small></span></a>
+    <div class="nav-label">WERKRUIMTE</div>
+    <nav aria-label="Hoofdnavigatie">
+      <a href="#overzicht" data-page="overzicht"><span>◫</span> Overzicht</a>
+      <a href="#invoer" data-page="invoer"><span>＋</span> Mail invoeren</a>
+      <a href="#maand" data-page="maand"><span>▦</span> Maandoverzicht</a>
+      <a href="#afrekeningen" data-page="afrekeningen"><span>▤</span> Afrekeningen</a>
+      <a href="#betalingen" data-page="betalingen"><span>✓</span> Betalingen</a>
+      <a href="#bewoners" data-page="bewoners"><span>♧</span> Bewoners</a>
+    </nav>
+    <div class="sidebar-bottom"><a href="#instellingen">Instellingen & back-ups</a><a href="#historiek">Bronmails & wijzigingen</a><p><span class="local-dot"></span> Lokaal op deze computer<br><small>Je gegevens blijven hier bewaard.</small></p></div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><div>Administratie <span>/</span> <b id="breadcrumb">Overzicht</b></div><label class="month-control">Werkmaand <input id="month" type="month" aria-label="Werkmaand"></label></header>
+    <main id="main" tabindex="-1"><p class="loading">Maaltijdenbeheer wordt geladen…</p></main>
+    <footer>Oranje maaltijdenbeheer · 2026.10.24.1 <span>€ 9,90 per maaltijd · 6% btw op het maandtotaal</span></footer>
+  </div>
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+  <dialog id="dialog"><div id="dialog-body"></div><form method="dialog" class="dialog-footer"><button class="secondary">Sluiten</button></form></dialog>
+</body>
+</html>

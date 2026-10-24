@@ -1,0 +1,30 @@
+ORANJE MAALTIJDENBEHEER - UPDATE 2026.10.24.1
+
+Wat verandert er?
+- Afzendernaam, adres, e-mail en rekeningnummer staan samen bovenaan de PDF.
+- De afrekencode en bestandsnaam bevatten maand, jaar en bewonersnaam.
+  Voorbeeld: 10-2026-Voorbeeld-Bewoner-V1.pdf.
+- Correcties krijgen een volgend versienummer; oude PDFs blijven bewaard.
+
+Uitvoeren op de andere Windows-pc:
+1. Maak eventueel eerst een volledige back-up vanuit de app.
+2. Sluit de app volledig: ook het zwarte startvenster (Ctrl+C).
+3. Pak dit hele zipbestand uit, bijvoorbeeld in Downloads.
+4. Dubbelklik op 'Update uitvoeren.cmd'.
+5. Kies de BESTAANDE appmap met app.py en Start Oranje.cmd.
+6. Wacht op 'UPDATE GESLAAGD'. Er is geen nieuwe installatie nodig.
+7. Start de app opnieuw en vernieuw met Ctrl+R.
+8. Controleer en bewaar de juiste afzendergegevens bij Instellingen.
+9. Kies bij Afrekeningen de juiste werkmaand en klik op
+   'Afrekeningen voor deze maand maken'. Bevestig de maandcontrole.
+10. Download de NIEUWSTE afrekenversie. Die heeft de nieuwe kop en code.
+
+Belangrijk:
+- Bestaande PDFs worden niet stilzwijgend veranderd. Daarom is stap 9 nodig.
+- Is een vorige versie al verstuurd? De app meldt dit. Controleer zelf of
+  de ontvanger de vervangende afrekening nodig heeft.
+- Bewoners, mails, maaltijden, instellingen en betalingen blijven behouden.
+- De update gebruikt de bestaande Python-omgeving, zonder internetinstallatie.
+- runtime.json, .venv en de inhoud van data worden niet overschreven.
+- De updater maakt een reservekopie in de appmap onder update-backups.
+- Dit updatepakket bevat geen echte administratie of lokale runtimepaden.

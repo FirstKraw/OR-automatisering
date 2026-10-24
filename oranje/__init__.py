@@ -1,0 +1,1 @@
+"""Lokaal maaltijdenbeheer voor Oranje."""
